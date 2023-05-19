@@ -1,8 +1,13 @@
 'use strict';
+//mano nuomone apie sita darba
 let dalykai = document.querySelectorAll(".langelis");
 let dalykaio = [];
 let localdalykas = undefined;
-let mrblobby = undefined;
+let xloc = undefined;
+let x = "";
+let y = "";
+let rdr = new FileReader();
+let [inpt] = document.getElementById("fl").files;
 function naujdb(){
     dalykaio = [];
     dalykai.forEach(dalykas => {
@@ -14,12 +19,11 @@ function naujdb(){
     window.open(x)
 }
 
+function check() {
+    var xy = rdr.readAsText(inpt);
+    console.log(xy);
+}
 console.log(dalykai);
-
-let xloc = undefined;
-let x = "";
-let y = "";
-
 function atnaujinti(){
     dalykai.forEach(dalykas => {
         if(dalykas.innerHTML == "" || dalykas.innerHTML == "Tuscia"){
@@ -56,33 +60,23 @@ dalykai.forEach(dalykas => {
         dragStr(dalykas);
         xloc = e.target;
     });
-});
-dalykai.forEach(dalykas => {
     dalykas.addEventListener("dragend", e => {
         dragPab(dalykas);
     });
-});
-dalykai.forEach(dalykas => {
     dalykas.addEventListener("dragenter", e => {
         e.preventDefault();
         dragPo(dalykas);
     });
-});
-dalykai.forEach(dalykas => {
     dalykas.addEventListener("dragover", e => {
         e.preventDefault();
     });
-});
-dalykai.forEach(dalykas => {
-    dalykas.addEventListener("dragleave", e => {
-        e.preventDefault();
-        dragNe(dalykas);
-    });
-});
-dalykai.forEach(dalykas => {
     dalykas.addEventListener("drop", e => {
         e.preventDefault();
         dragUps(dalykas);
+    });
+    dalykas.addEventListener("dragleave", e => {
+        e.preventDefault();
+        dragNe(dalykas);
     });
 });
 function dragStr(vuz){
@@ -107,3 +101,4 @@ function dragUps(vuz){
     atnaujinti();
 }
 atnaujinti();
+localstr();

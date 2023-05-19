@@ -10,14 +10,15 @@
 <body>
     <h1 class="stat">Statybininkų duomenų bazė</h1>
     <div class="vienas langas">
-        <div class="vienas mygtukas" onclick="localstr()">
+        <div class="vienas mygtukas" onclick="localstr();">
             <p>Įkelti iš LocalStorage</p>
         </div>
-        <div class="du mygtukas" onclick="localst()">
+        <div class="du mygtukas" onclick="localst();">
             <p>Išsaugoti į LocalStorage</p>
         </div>
         <div class="trys mygtukas">
-            <input type="file">
+            <input type="file" id="fl">
+            <div class="langas" onclick="check();">Taip</div>
         </div>
         <div class="keturi mygtukas" onclick="naujdb();">
             <p>Atsisiųsti DB failą</p>
@@ -51,7 +52,7 @@
         <div draggable="true" class="a25 langelis"></div>
         <div draggable="true" class="a26 langelis"></div>
         <div draggable="true" class="a27 langelis"></div>
-        <div draggable="true" class="a28 langelis">Urista</div>
+        <div draggable="true" class="a28 langelis">Urista Pazistamas</div>
         <div draggable="true" class="a29 langelis">Vakarius</div>
         <div draggable="true" class="a30 langelis">Vantas</div>
         <div draggable="true" class="a31 langelis"></div>
