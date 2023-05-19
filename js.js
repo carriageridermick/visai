@@ -2,14 +2,16 @@
 let dalykai = document.querySelectorAll(".langelis");
 let dalykaio = [];
 let localdalykas = undefined;
+let mrblobby = undefined;
 function naujdb(){
     dalykaio = [];
     dalykai.forEach(dalykas => {
         dalykaio.push({darbuotojas: dalykas.innerHTML});
     });
-    var x = new File(dalykaio, "eiksvlipt.txt");
-    alert(`tipo atsiuncia :) \n\n\n${x}`);
-    browser.downloads.download(x); //!!!!!!!!!!!!!!!!!!!!!!!!!!
+    x = URL.createObjectURL(
+        new Blob([JSON.stringify(dalykaio)])
+    );
+    window.open(x)
 }
 
 console.log(dalykai);
@@ -20,8 +22,8 @@ let y = "";
 
 function atnaujinti(){
     dalykai.forEach(dalykas => {
-        if(dalykas.innerHTML == "" || dalykas.innerHTML == "Tuščia"){
-            dalykas.innerHTML = "Tuščia";
+        if(dalykas.innerHTML == "" || dalykas.innerHTML == "Tuscia"){
+            dalykas.innerHTML = "Tuscia";
             dalykas.classList.add("plk");
         } else {
             dalykas.classList.remove("plk");
